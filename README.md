@@ -1,10 +1,14 @@
 # PulseLab
 
-A Python app for checking my Garmin HRM-Dual on Ubuntu 24.04. It shows heart rate, the time between beats (R-R intervals), a live plot, and two heart rate variability measurements (RMSSD and SDNN).
+A Python desktop app for exploring data from Bluetooth heart rate sensors. It shows heart rate, the time between beats (R-R intervals), a live plot, and heart rate variability (RMSSD and SDNN).
+
+Tested with a Garmin HRM-Dual on Ubuntu 24.04. Windows setup is listed below, but Bluetooth monitoring has yet to be tested on Windows.
 
 ## Setup
 
-Run these commands from the project folder:
+Open a terminal in the project folder and follow the steps for your system.
+
+### Ubuntu 24.04
 
 ```bash
 sudo apt update
@@ -15,9 +19,19 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
+### Windows
+
+Install Python 3.12 and open PowerShell in the project folder.
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe main.py
+```
+
 ## Use
 
-Turn on Bluetooth and put on the strap. The app finds it automatically. If you have more than one monitor, you can pick one with `python main.py --address AA:BB:CC:DD:EE:FF`.
+Turn on Bluetooth and put on the strap. The app looks for it automatically. If you have more than one monitor, add `--address AA:BB:CC:DD:EE:FF` to the launch command with your strap's Bluetooth address.
 
 Click **Start recording**, then **Stop recording** and **Export CSV**. The CSV includes the raw Bluetooth packets, their arrival times, and the heart rate and R-R values.
 
