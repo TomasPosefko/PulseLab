@@ -1,0 +1,16 @@
+# Python and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Local editor settings
+.idea/
+.vscode/
+
+# Exported recordings
+*.csv
